@@ -20,9 +20,9 @@ const routes = [
     redirect: "/welcome",
     children: [
       { path: "/welcome", component: () => import("@/components/Welcome") },
-      { path: "/users", component: () => import("@/components/User") },
-      { path: "/roles", component: () => import("@/components/Roles") },
-      { path: "/rights", component: () => import("@/components/Rights") },
+      { path: "/users", component: () => import("@/components/user/User") },
+      { path: "/roles", component: () => import("@/components/power/Roles") },
+      { path: "/rights", component: () => import("@/components/power/Rights") },
       { path: "/goods", component: () => import("@/components/Goods") },
       { path: "/params", component: () => import("@/components/Params") },
       {
