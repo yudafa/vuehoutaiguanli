@@ -9,46 +9,29 @@
 </head>
 
 <body>
-  <div>
-    <!-- <span>登录:</span>
-    <input type="text">
-    <button>按钮</button> -->
-    <span id="s"></span>
-    <span id="a"></span>
 
-  </div>
 </body>
 
 </html>
-<style>
-  div {
-    /* display: flex;
-    flex: 1;
-    
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh; */
-    position: relative;
+<script>
+  let arrList = [
+    { id: 1, parent: null, text: '菜单1' },
+    { id: 11, parent: 1, text: '菜单1-1' },
+    { id: 12, parent: 1, text: '菜单1-2' },
+    { id: 2, parent: null, text: '菜单2' },
+    { id: 21, parent: 2, text: '菜单2-1' },
+  ]
+  function eatchList (arrList, id, list) {
+    for (let item of arrList) {
+      if (item.parent == id) {
+        list.push(item)
+      }
+    }
+    for (let i of list) {
+      i.children = []
+      eatchList(arrList, i.id, i.children)
+    }
+    console.log(list);
   }
-
-  #s {
-    position: absolute;
-    left: 100px;
-    top: 100px;
-    background-color: red;
-    width: 100px;
-    height: 100px;
-  }
-
-  #a {
-    background-color: blue;
-    width: 100px;
-    height: 100px;
-  }
-
-  body {
-    padding: 0;
-    margin: 0;
-  }
-</style>
+  eatchList(arrList, null, [])
+</script>

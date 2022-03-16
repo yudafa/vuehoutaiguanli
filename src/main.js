@@ -15,9 +15,11 @@ axios.interceptors.request.use((config) => {
   config.headers.Authorization = userInfo ? userInfo.token : ''
   return config
 })
+
 Vue.config.productionTip = false
 
 new Vue({
+  mode: 'hash',
   router,
   store,
   render: (h) => h(App),

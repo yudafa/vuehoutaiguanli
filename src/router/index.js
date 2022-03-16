@@ -24,18 +24,21 @@ const routes = [
       { path: '/roles', component: () => import('@/components/power/Roles') },
       { path: '/rights', component: () => import('@/components/power/Rights') },
       { path: '/goods', component: () => import('@/components/goods/Goods') },
+      { path: '/goods/add', component: () => import('@/components/goods/Add') },
       { path: '/params', component: () => import('@/components/goods/Params') },
       {
         path: '/categories',
         component: () => import('@/components/goods/Categories'),
       },
-      { path: '/orders', component: () => import('@/components/Orders') },
+      { path: '/orders', component: () => import('@/components/Orders/Orders') },
     ],
   },
 ]
 const router = new VueRouter({
+  mode: 'hash',
   routes,
 })
+
 router.beforeEach((to, from, next) => {
   const userInfo = JSON.parse(sessionStorage.getItem('userName'))
   // 如果访问登录页放行
