@@ -187,13 +187,17 @@ export default {
   },
   created() {
     this.userList()
-    console.log(this, 'this')
+    // console.log(this, 'this')
   },
   methods: {
     userList1: throttle(function () {
       // 节流
       this.userList()
     }, 2000),
+
+    // userList1() {
+    //   throttle(this.userList(), 2000)
+    // },
     async userList() {
       // const { data: res } = await this.$http.get('users', {
       //   params: this.queryInfo,
